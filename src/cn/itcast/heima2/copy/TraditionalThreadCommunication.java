@@ -1,4 +1,4 @@
-package cn.itcast.heima2;
+package cn.itcast.heima2.copy;
 /**
  *  
  * @author zhouj
