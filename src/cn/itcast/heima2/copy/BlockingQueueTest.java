@@ -11,10 +11,10 @@ public class BlockingQueueTest {
 					while(true){
 						try {
 							Thread.sleep((long)(Math.random()*1000));
-							System.out.println(Thread.currentThread().getName() + "׼��������!");							
+							System.out.println(Thread.currentThread().getName() + "?????????!");							
 							queue.put(1);
-							System.out.println(Thread.currentThread().getName() + "�Ѿ��������ݣ�" + 							
-										"����Ŀǰ��" + queue.size() + "������");
+							System.out.println(Thread.currentThread().getName() + "????????????" + 							
+										"????????" + queue.size() + "??????");
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -29,12 +29,12 @@ public class BlockingQueueTest {
 			public void run(){
 				while(true){
 					try {
-						//���˴���˯��ʱ��ֱ��Ϊ100��1000���۲����н��
+						//?????????????????100??1000????????��??
 						Thread.sleep(1000);
-						System.out.println(Thread.currentThread().getName() + "׼��ȡ����!");
+						System.out.println(Thread.currentThread().getName() + "????????!");
 						queue.take();
-						System.out.println(Thread.currentThread().getName() + "�Ѿ�ȡ�����ݣ�" + 							
-								"����Ŀǰ��" + queue.size() + "������");					
+						System.out.println(Thread.currentThread().getName() + "???????????" + 							
+								"????????" + queue.size() + "??????");					
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
