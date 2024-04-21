@@ -58,3 +58,308 @@
 
 谢谢张老师，祝您在天堂也可以有很多求知若渴的学生！！！
 ```
+可以使用常见的排序算法，比如冒泡排序、选择排序、插入排序或快速排序。下面是一个使用冒泡排序算法对一个长度为10的整数数组进行从小到大排序的Java程序示例：
+public class SortArray {
+    public static void main(String[] args) {
+        // 定义数组并初始化
+        int[] arr = {9, 5, 2, 7, 1, 8, 3, 6, 4, 10};
+
+        // 打印原始数组
+        System.out.println("Original array:");
+        printArray(arr);
+
+        // 使用冒泡排序对数组进行排序
+        bubbleSort(arr);
+
+        // 打印排序后的数组
+        System.out.println("\nSorted array:");
+        printArray(arr);
+    }
+
+    // 冒泡排序算法实现
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // 交换arr[j]和arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // 打印数组元素的方法
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+------------
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        // 打印乘法表的表头
+        System.out.println("Multiplication Table:");
+        System.out.println("---------------------");
+
+        // 循环生成乘法表
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                // 计算乘积
+                int product = i * j;
+                // 打印每个乘法表格项
+                System.out.printf("%2d x %2d = %2d | ", i, j, product);
+            }
+            // 换行开始下一行
+            System.out.println();
+        }
+    }
+}
+--------------------------------------
+当涉及到Java场面的笔试算法题时，通常会涉及一些常见的算法和数据结构，比如排序、查找、链表、树等。以下是一些可能会出现的算法题目及其对应的答案：
+
+1. **找出数组中的最大值和最小值：**
+
+题目描述：给定一个整数数组，找出数组中的最大值和最小值。
+
+答案示例：
+```java
+public class MaxMinValue {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 9, 1, 7, 2};
+        int min = arr[0];
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            } else if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        System.out.println("最小值: " + min);
+        System.out.println("最大值: " + max);
+    }
+}
+```
+
+2. **判断一个字符串是否是回文串：**
+
+题目描述：给定一个字符串，判断它是否是回文串（正着读和反着读都一样）。
+
+答案示例：
+```java
+public class Palindrome {
+    public static void main(String[] args) {
+        String str = "abccba";
+        boolean isPalindrome = true;
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+        if (isPalindrome) {
+            System.out.println("是回文串");
+        } else {
+            System.out.println("不是回文串");
+        }
+    }
+}
+```
+
+3. **求一个数组的平均值：**
+
+题目描述：给定一个整数数组，计算数组的平均值。
+
+答案示例：
+```java
+public class AverageValue {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 9, 1, 7, 2};
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        double average = (double) sum / arr.length;
+        System.out.println("平均值: " + average);
+    }
+}
+```
+
+这些题目都是常见的Java笔试算法题目，适合用来练习算法基础。
+
+-------------------------------------------------------------------
+下面是20个Java常见的面试笔试编程题以及简要的编程答案：
+
+1. **反转字符串**
+   - 问题：编写一个函数来反转一个字符串。
+   - 答案：
+     ```java
+     public String reverseString(String s) {
+         return new StringBuilder(s).reverse().toString();
+     }
+     ```
+
+2. **判断回文数**
+   - 问题：判断一个整数是否是回文数。
+   - 答案：
+     ```java
+     public boolean isPalindrome(int x) {
+         String s = String.valueOf(x);
+         return s.equals(new StringBuilder(s).reverse().toString());
+     }
+     ```
+
+3. **找出数组中重复的数字**
+   - 问题：在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
+   - 答案：
+     ```java
+     public int findDuplicate(int[] nums) {
+         Set<Integer> set = new HashSet<>();
+         for (int num : nums) {
+             if (set.contains(num)) {
+                 return num;
+             }
+             set.add(num);
+         }
+         return -1;
+     }
+     ```
+
+4. **合并两个有序链表**
+   - 问题：将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+   - 答案：
+     ```java
+     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+         if (l1 == null) return l2;
+         if (l2 == null) return l1;
+         if (l1.val < l2.val) {
+             l1.next = mergeTwoLists(l1.next, l2);
+             return l1;
+         } else {
+             l2.next = mergeTwoLists(l1, l2.next);
+             return l2;
+         }
+     }
+     ```
+
+5. **判断链表是否有环**
+   - 问题：给定一个链表，判断链表中是否有环。
+   - 答案：
+     ```java
+     public boolean hasCycle(ListNode head) {
+         if (head == null || head.next == null) return false;
+         ListNode slow = head;
+         ListNode fast = head.next;
+         while (slow != fast) {
+             if (fast == null || fast.next == null) {
+                 return false;
+             }
+             slow = slow.next;
+             fast = fast.next.next;
+         }
+         return true;
+     }
+     ```
+
+6. **找出数组中缺失的数字**
+   - 问题：给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。
+   - 答案：
+     ```java
+     public int missingNumber(int[] nums) {
+         int n = nums.length;
+         int sum = n * (n + 1) / 2;
+         for (int num : nums) {
+             sum -= num;
+         }
+         return sum;
+     }
+     ```
+
+7. **求二叉树的最大深度**
+   - 问题：给定一个二叉树，找出其最大深度。
+   - 答案：
+     ```java
+     public int maxDepth(TreeNode root) {
+         if (root == null) return 0;
+         int leftDepth = maxDepth(root.left);
+         int rightDepth = maxDepth(root.right);
+         return Math.max(leftDepth, rightDepth) + 1;
+     }
+     ```
+
+8. **二叉树的层次遍历**
+   - 问题：给定一个二叉树，返回其节点值自底向上的层次遍历。
+   - 答案：
+     ```java
+     public List<List<Integer>> levelOrderBottom(TreeNode root) {
+         List<List<Integer>> result = new ArrayList<>();
+         if (root == null) return result;
+         Queue<TreeNode> queue = new LinkedList<>();
+         queue.offer(root);
+         while (!queue.isEmpty()) {
+             int size = queue.size();
+             List<Integer> level = new ArrayList<>();
+             for (int i = 0; i < size; i++) {
+                 TreeNode node = queue.poll();
+                 level.add(node.val);
+                 if (node.left != null) queue.offer(node.left);
+                 if (node.right != null) queue.offer(node.right);
+             }
+             result.add(0, level);
+         }
+         return result;
+     }
+     ```
+
+9. **判断一个数是否为2的幂**
+   - 问题：给定一个整数，编写一个函数来判断它是否是 2 的幂次方。
+   - 答案：
+     ```java
+     public boolean isPowerOfTwo(int n) {
+         if (n <= 0) return false;
+         return (n & (n - 1)) == 0;
+     }
+     ```
+
+10. **判断一个数是否为3的幂**
+    - 问题：给定一个整数，编写一个函数来判断它是否是 3 的幂次方。
+    - 答案：
+      ```java
+      public boolean isPowerOfThree(int n) {
+          if (n <= 0) return false;
+          while (n % 3 == 0) {
+              n /= 3;
+          }
+          return n == 1;
+      }
+      ```
+
+11. **计算字符串中的唯一字符**
+    - 问题：给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
+    - 答案：
+      ```java
+      public int firstUniqChar(String s) {
+          int[] count = new int[26];
+          for (char c : s.toCharArray()) {
+              count[c - 'a']++;
+          }
+          for (int i = 0; i < s.length(); i++) {
+              if (count[s.charAt(i) - 'a'] == 1) {
+                  return i;
+              }
+          }
+          return -1;
+      }
+      ```
+
+12. **寻找两个有序数组的中位数**
+    - 问题：给定两个大小为 m 和 n 的有序数组 nums1 和 nums2，请你找出这两个有序数组的中位数。
+    - 答案：
+      ```java
+      public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+          int[] merged = new int[nums1.length + nums2.length];
+          int i = 0, j =
