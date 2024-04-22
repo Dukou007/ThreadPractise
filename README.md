@@ -363,3 +363,66 @@ public class AverageValue {
       public double findMedianSortedArrays(int[] nums1, int[] nums2) {
           int[] merged = new int[nums1.length + nums2.length];
           int i = 0, j =
+      ------------------------------------------
+      好的，下面我将为每个例题添加具体的示例数据或者数据结构：
+      
+      1. **两数之和（Two Sum）**：
+         - 问题描述：给定一个整数数组和一个目标值，在数组中找到和为目标值的两个数，并返回它们的索引。
+         - 示例：
+           - 输入：nums = [2, 7, 11, 15], target = 9
+           - 输出：[0, 1]
+         - Java代码解答：
+           ```java
+           public int[] twoSum(int[] nums, int target) {
+               Map<Integer, Integer> map = new HashMap<>();
+               for (int i = 0; i < nums.length; i++) {
+                   int complement = target - nums[i];
+                   if (map.containsKey(complement)) {
+                       return new int[] { map.get(complement), i };
+                   }
+                   map.put(nums[i], i);
+               }
+               throw new IllegalArgumentException("No two sum solution");
+           }
+           ```
+      
+      2. **反转字符串（Reverse String）**：
+         - 问题描述：编写一个函数，其作用是将输入的字符串反转过来。
+         - 示例：
+           - 输入：s = "hello"
+           - 输出："olleh"
+         - Java代码解答：
+           ```java
+           public String reverseString(String s) {
+               char[] chars = s.toCharArray();
+               int left = 0, right = chars.length - 1;
+               while (left < right) {
+                   char temp = chars[left];
+                   chars[left++] = chars[right];
+                   chars[right--] = temp;
+               }
+               return new String(chars);
+           }
+           ```
+      
+      3. **回文数（Palindrome Number）**：
+         - 问题描述：判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
+         - 示例：
+           - 输入：121
+           - 输出：true
+         - Java代码解答：
+           ```java
+           public boolean isPalindrome(int x) {
+               if (x < 0 || (x % 10 == 0 && x != 0)) {
+                   return false;
+               }
+               int reversed = 0;
+               while (x > reversed) {
+                   reversed = reversed * 10 + x % 10;
+                   x /= 10;
+               }
+               return x == reversed || x == reversed / 10;
+           }
+           ```
+      
+      ...（以下省略）
