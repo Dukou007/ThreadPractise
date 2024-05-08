@@ -6,14 +6,14 @@ import java.util.Arrays;
 public class RuturnNumber {
     public static void main(String[] args) {
         int[] t = {3, 2, 1, 5, 7, 9};
-//        Arrays.sort(t);
-        for (int j = 0; j < t.length; j++) {
-            for (int i = 0; i < t.length - j - 1; i++) {
-                if (t[i] > t[i + 1]) {
-                    int m;
-                    m = t[i];
-                    t[i] = t[i + 1];
-                    t[i + 1] = m;
+//        大-小
+        int n=t.length;
+        for (int j = 0; j < n - 1; j++) {
+            for (int i = 0; i < n - j - 1; i++) {
+                if (t[i] < t[i+1]) {
+                    int m = t[i+1];
+                    t[i+1] = t[i];
+                    t[i] = m;
                 }
             }
         }
@@ -34,6 +34,7 @@ public class RuturnNumber {
          *
          * 这两行代码共同实现了冒泡排序算法中的核心双重循环结构，用于遍历待排序数组并执行相邻元素的比较和交换操作。
          */
+//        System.out.println(Arrays.toString(t));
         System.out.println(Arrays.toString(t));
     }
 }
